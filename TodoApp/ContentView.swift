@@ -33,13 +33,13 @@ struct ContentView: View {
                         Spacer()
                         Text("Add Task")
                         Spacer()
-
                     }
                             .padding()
                             .background(Color.green)
                             .foregroundColor(.black)
                             .cornerRadius(15)
                 }
+                .padding()
 
                 Spacer()
                         .frame(height:10)

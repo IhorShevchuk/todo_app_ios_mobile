@@ -1,0 +1,50 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "process",
+            "command": "xcodebuild",
+            "args": [
+                "-configuration",
+                "Debug",
+                "-sdk",
+                "${command:ios-debug.targetSdk}",
+                "-allowProvisioningUpdates"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$swiftc"
+            ]
+        },
+        {
+            "label": "Test",
+            "type": "process",
+            "command": "xcodebuild",
+            "args": [
+                "-configuration",
+                "Debug",
+                "-sdk",
+                "${command:ios-debug.targetSdk}",
+                "-allowProvisioningUpdates",
+                "-derivedDataPath",
+                "${workspaceFolder}/build",
+                "-scheme",
+                "TodoApp",
+                "-destination",
+                "platform=iOS Simulator,name=iPhone 14",
+                "test"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$swiftc"
+            ]
+        }
+    ]
+}
