@@ -40,12 +40,39 @@ struct ContentView: View {
                             .foregroundColor(.black)
                             .cornerRadius(15)
                 }
+
+                Spacer()
+                        .frame(height:10)
+                List {
+                    ForEach(viewModel.todos) { todo in
+                        HStack {
+                            Text(todo.title)
+                            Spacer()
+
+                            Button(action: {
+                                viewModel.completeTask(todo)
+                            }) {
+                                Image(systemName: todo.isCompleted ? "checkmark.circle.fill" : "circle")
+                            }
+                                    .buttonStyle(PlainButtonStyle())
+
+                            Button(action: {
+                                viewModel.deleteTask(todo)
+                            }) {
+                                Image(systemName: "trash")
+                            }
+                                    .buttonStyle(PlainButtonStyle())
+                        }
+                    }
+                }
+                        .listStyle(.insetGrouped)
+                        .background(Color.clear)
+
                 Spacer()
             }
                     .padding()
                     .navigationBarTitle("Todo App")
         }
-
     }
 }
 

@@ -8,33 +8,12 @@ protocol DataStoreInterface : ObservableObject, AnyObject {
     func save(_ todo: Todo)
     func delete(_ todo: Todo)
     func getAll() -> [Todo]
+    func complete(_ todo: Todo)
 }
 
-class DataStore: DataStoreInterface {
+class DataStore {
 
     var backend = UserDefaults.standard
-
-    func save(_ todo: Todo) {
-        var todos = readTodos()
-        if let index = todos.firstIndex(where: { $0.id == todo.id }) {
-            todos[index] = todo
-        } else {
-            todos.append(todo)
-        }
-        save(todos: todos)
-    }
-
-    func delete(_ todo: Todo) {
-        var todos = readTodos()
-        if let index = todos.firstIndex(where: { $0.id == todo.id }) {
-            todos.remove(at: index)
-            save(todos: todos)
-        }
-    }
-
-    func getAll() -> [Todo] {
-        return readTodos()
-    }
 
     private func save(todos: [Todo]) {
         let encoder = JSONEncoder()
@@ -51,5 +30,37 @@ class DataStore: DataStoreInterface {
             }
         }
         return []
+    }
+}
+
+extension DataStore: DataStoreInterface {
+    func save(_ todo: Todo) {
+        var todos = readTodos()
+        if let index = todos.firstIndex(where: { $0.id == todo.id }) {
+            todos[index] = todo
+        } else {
+            todos.append(todo)
+        }
+        save(todos: todos)
+    }
+
+    func complete(_ todo: Todo) {
+        var todos = readTodos()
+        if let index = todos.firstIndex(where: { $0.id == todo.id }) {
+            todos[index].isCompleted = true
+        }
+        save(todos: todos)
+    }
+
+    func delete(_ todo: Todo) {
+        var todos = readTodos()
+        if let index = todos.firstIndex(where: { $0.id == todo.id }) {
+            todos.remove(at: index)
+            save(todos: todos)
+        }
+    }
+
+    func getAll() -> [Todo] {
+        return readTodos()
     }
 }

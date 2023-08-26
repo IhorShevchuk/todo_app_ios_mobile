@@ -26,4 +26,9 @@ class ContentViewModel: ObservableObject {
         dataStore.delete(todo)
         todos = dataStore.getAll()
     }
+
+    func completeTask(_ todo: Todo) {
+        dataStore.complete(todo)
+        todos = dataStore.getAll()
+    }
 }
