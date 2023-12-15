@@ -30,7 +30,7 @@ xcodebuild -project TodoApp.xcodeproj -scheme TodoApp -destination 'platform=iOS
 If you want to get `ipa` file you would need to specify signing identity and provisioning profile:
 
 ```bash
-xcodebuild -project TodoApp.xcodeproj -scheme TodoApp -destination 'platform=iOS Simulator,name=iPhone 13,OS=16.4' -configuration Release CODE_SIGN_IDENTITY="iPhone Developer" PROVISIONING_PROFILE="your provisioning profile" archive -archivePath build/TodoApp.xcarchive
+xcodebuild -project TodoApp.xcodeproj -scheme TodoApp -destination 'platform=iOS Simulator,name=iPhone 13,OS=16.4' -configuration Release CODE_SIGN_IDENTITY="iPhone Developer" PROVISIONING_PROFILE="your provisioning profile" DEVELOPMENT_TEAM="your development team id if needed" archive -archivePath build/TodoApp.xcarchive
 ```
 Also you may need to specify DEVELOPMENT_TEAM if you have multiple teams in your account. And update Xcode project settings to use automatic signing.
 
@@ -43,6 +43,8 @@ For example:
 ```bash
 xcodebuild -project TodoApp.xcodeproj -scheme TodoApp -destination 'platform=iOS Simulator,name=iPhone 13,OS=16.4' test
 ```
+
+Your will get results in console. See [here](https://developer.apple.com/documentation/xcode/running-tests-and-interpreting-results) for more details
 
 ## License
 
