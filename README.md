@@ -4,8 +4,8 @@ This repository contains sample project created in testing purposes. It is a sim
 
 ## Requirements
 
-IDE: Xcode 13+, Visual Studio Code 1.61+, AppCode 2021.2+
-iOS: iOS 16.4+
+1. IDE: Xcode 13+, Visual Studio Code 1.61+, AppCode 2021.2+
+1. iOS: iOS 16.4+
 
 ## Dependencies
 
@@ -19,7 +19,7 @@ Visual Studio Code notice: you will not be able to run unit tests from IDE, beca
 
 ## Building From Command Line
 
-To build this project from command line, you need to have Xcode 13+ installed on your machine. Then you can run `xcodebuild` command from project root directory. This command will build project and run all unit tests.
+Run `xcodebuild` command from project root directory. This command will build project and run all unit tests.
 
 Here is a command example:
 
@@ -36,7 +36,7 @@ Also you may need to specify DEVELOPMENT_TEAM if you have multiple teams in your
 
 ## Running Tests From Command Line
 
-To run tests from command line, you need to have Xcode 13+ installed on your machine. Then you can run `xcodebuild test` command from project root directory. This command will build project and run all unit tests.
+Run `xcodebuild test` command from project root directory. This command will build project and run all unit tests.
 
 For example:
 
