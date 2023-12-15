@@ -1,0 +1,7 @@
+release-1 - Added a possibility to add “To Do Task” - Input field and Button.
+
+release-2 - Added a possibility to “Complete” task
+
+release-3 - Updated list of recomended extensions of Visual Studio Code
+
+release-4 - Updated README.md file
